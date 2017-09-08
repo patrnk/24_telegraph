@@ -12,6 +12,9 @@
         <h1>{{ object.title }}</h1>
         <p class="lead">{{ object.signature }}</p>
         <p>{{ object.text }}</p>
+        {% if object.session_key == request.session.session_key %}
+          <a href="{% url 'update_entry' object.slug %}">Отредактировать</a>
+        {% endif %}
       </div>
     </div>
   </div>

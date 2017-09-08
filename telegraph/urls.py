@@ -22,6 +22,9 @@ import entries.views
 urlpatterns = [
     url(r'^create/$', entries.views.EntryCreateView.as_view(),
         name='create_entry'),
+    url(r'^update/(?P<slug>[-\w]+)/$',
+        entries.views.EntryUpdateView.as_view(raise_exception=True),
+        name='update_entry'),
     url(r'^entry/(?P<slug>[-\w]+)/$', entries.views.EntryDetailView.as_view(),
         name='entry_detail')
 ]
