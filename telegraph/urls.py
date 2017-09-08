@@ -20,7 +20,7 @@ import entries.views
 
 
 urlpatterns = [
-    url(r'^create/$', entries.views.EntryCreateView.as_view(),
+    url(r'^$', entries.views.EntryCreateView.as_view(),
         name='create_entry'),
     url(r'^update/(?P<slug>[-\w]+)/$',
         entries.views.EntryUpdateView.as_view(raise_exception=True),
