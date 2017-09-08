@@ -1,6 +1,11 @@
 # Telegraph Clone
 
-{TODO. There will be project description}
+Clone of the popular http://telegra.ph/. You can try it on [Heroku](https://safe-cove-33456.herokuapp.com).
+
+This is a bare bones version. These are the ways the app can be improved:
+- add markdown for editing
+- improve the look of the app
+
 
 # Project Goals
 
