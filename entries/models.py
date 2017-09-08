@@ -1,8 +1,8 @@
-from random import randint
-
 from django.db import models
 from django.utils.text import slugify
 from django.urls import reverse
+
+from .utils import generate_slug
 
 
 class Entry(models.Model):
@@ -16,12 +16,10 @@ class Entry(models.Model):
 
     def save(self, *args, **kwargs):
         if not self.id:
-            while True:
-                random_number = randint(10**2, 10**10 - 1)
-                raw_slug = '{}-{}'.format(self.title, random_number)
-                self.slug = slugify(raw_slug, allow_unicode=True)
-                if not Entry.objects.filter(slug=self.slug).exists():
-                    break
+            self.slug = generate_slug(
+                model=Entry,
+                slug_prefix=self.title
+            )
         super(Entry, self).save(*args, **kwargs)
 
     def get_absolute_url(self):
