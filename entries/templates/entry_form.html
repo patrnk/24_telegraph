@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+  Написание записи
+{% endblock %}
+
+{% block content %}
+  <div class="container">
+    <form method="POST">
+      <div class="form-group">
+        {% csrf_token %}
+        {{ form.title }}
+      </div>
+      <div class="form-group">
+        {{ form.signature }}
+      </div>
+      <div class="form-group">
+        {{ form.text }}
+      </div>
+      <div class="form-group">
+        <button class="btn btn-primary" type="submit">Опубликовать</button>
+      </div>
+    </form>
+  </div>
+{% endblock %}

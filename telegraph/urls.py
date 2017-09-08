@@ -16,6 +16,12 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 
+import entries.views
+
+
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
+    url(r'^create/$', entries.views.EntryCreateView.as_view(),
+        name='create_entry'),
+    url(r'^entry/(?P<slug>[-\w]+)/$', entries.views.EntryDetailView.as_view(),
+        name='entry_detail')
 ]
